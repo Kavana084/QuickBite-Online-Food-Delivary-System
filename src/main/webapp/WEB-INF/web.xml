@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         id="WebApp_ID" version="4.0">
+
+  <display-name>QuickBite</display-name>
+
+  <!-- Welcome files -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!--
+    NOTE: LoginServlet   → @WebServlet("/LoginServlet")
+          MenuServlet    → @WebServlet("/menu")
+          LogoutServlet  → @WebServlet("/LogoutServlet")
+    These are registered via annotations and need NO web.xml entries.
+
+    RestaurantServlet is kept here for the legacy /RestaurantServlet URL
+    used in internal redirects (sendRedirect calls).
+  -->
+  <servlet>
+    <servlet-name>RestaurantServlet</servlet-name>
+    <servlet-class>com.tap.controller.RestaurantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RestaurantServlet</servlet-name>
+    <url-pattern>/RestaurantServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
